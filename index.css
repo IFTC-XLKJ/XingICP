@@ -12,7 +12,8 @@ body {
 }
 
 #icp {
-    width: 550px;
+    width: 70vw;
+    max-width: 550px;
     height: 35px;
     text-align: center;
     border-radius: 17.5px;

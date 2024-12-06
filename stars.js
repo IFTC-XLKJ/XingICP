@@ -38,7 +38,7 @@ class Star {
 }
 
 const stars = [];
-const numStars = 100;
+const numStars = Math.floor((Math.random() * 200).toFixed());
 
 for (let i = 0; i < numStars; i++) {
     const x = Math.random() * width;

@@ -68,7 +68,14 @@ onload = e => {
             page: 1,
             size: 1
         });
-        if (json.data.length == 0) {
+        console.log(json)
+        if (json.fields.length == 0) {
+            const data = await xingicp.setTableData({
+                type: "INSERT",
+                filter: "ICP,site,email,audit",
+                fields: `('a${icp.value}','${site.value}','${email.value}',0)`
+            });
+            console.log(data)
         } else {
             if (json.fields[0].email == email.value) { } else {
                 toast.warn("该备案号已注册", 2000)

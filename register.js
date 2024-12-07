@@ -84,7 +84,7 @@ onload = e => {
             toast.loadend(id)
         } else {
             if (json.fields[0].email == email.value) {
-                toast.error("你注册过备案号", 2000)
+                toast.error("你注册过此备案号", 2000)
                 toast.loadend(id)
             } else {
                 toast.warn("该备案号已注册", 2000)

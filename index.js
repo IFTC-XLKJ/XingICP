@@ -30,7 +30,7 @@ onload = e => {
                         </div>
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2 text-muted">备案者：${email}</h6>
-                            <p class="card-text">${sites.map(site => { return `<a href="https://${site}">${site}</a>` }).join("<br/>")}</p>
+                            <p class="card-text">备案域名：(${sites.length}个)<br>${sites.map(site => { return `<a href="https://${site}">${site}</a>` }).join("<br/>")}</p>
                         </div>
                     </div>`
                 }

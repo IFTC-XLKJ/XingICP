@@ -1,3 +1,6 @@
+let Email = ""
+let isVerify = false
+
 onload = e => {
     const toast = new Toast();
     const Submit = document.querySelector("[type=submit]");
@@ -28,8 +31,7 @@ onload = e => {
             toast.error('邮箱格式不正确', 2000)
         }
     }
-    Submit.onclick = e => {
-        e.preventDefault();
+    captcha.onchange = e => {
         let t = Math.round(new Date().getTime() / 1000);
         let json = {
             "identity": Email,
@@ -45,10 +47,17 @@ onload = e => {
             }
         })
     }
+    Submit.onclick = e => {
+        e.preventDefault();
+        if (!isVerify) {
+            toast.error("请先验证邮箱", 2000)
+            return
+        }
+    }
 }
 
 /**
- * 发送验证码
+ * 验证码
  * @param {object} json 
  * @param {string} path 
  * @param {Function} callback 

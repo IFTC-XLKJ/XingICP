@@ -1,6 +1,11 @@
 onload = e => {
 }
-
+/**
+ * 发送验证码
+ * @param {object} json 
+ * @param {string} path 
+ * @param {Function} callback 
+ */
 function ajax(json, path, callback) {
     let pgjson = {};
     Object.keys(json).sort().forEach((value) => {

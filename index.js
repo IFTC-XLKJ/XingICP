@@ -29,7 +29,7 @@ onload = e => {
                             <h5 class="card-title">星ICP备${ICP}号</h5>
                         </div>
                         <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-muted">备案者：${email}</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">备案者：<a href="mailto:${email}">${email}</a></h6>
                             <p class="card-text">备案域名和作品：(${sites.length}个)<br>${sites
                             .map(site => {
                                 const dd = site.split("->")

@@ -24,11 +24,6 @@ class Star {
 
     update() {
         this.y += this.speed;
-        if (this.y > height) {
-            this.y = -this.size;
-            this.x = Math.random() * width;
-            this.speed = Math.random() * 2 + 1;
-        }
         this.remove();
     }
 

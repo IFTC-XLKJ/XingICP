@@ -81,6 +81,7 @@ onload = e => {
             });
             console.log(data)
             toast.success("提交成功，请等待审核", 2000)
+            toast.loadend(id)
         } else {
             if (json.fields[0].email == email.value) {
                 toast.error("你注册过备案号", 2000)

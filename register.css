@@ -48,3 +48,7 @@ input[type="radio"] {
     margin: 0;
     transform: translateY(3px);
 }
+
+#monster {
+    margin-bottom: 5px;
+}

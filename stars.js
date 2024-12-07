@@ -39,6 +39,7 @@ class Star {
 
     remove() {
         if (this.y > height) {
+            console.log(stars.find(s => s === this))
             stars.splice(stars.indexOf(this), 1);
         }
     }

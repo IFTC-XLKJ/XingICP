@@ -18,6 +18,9 @@ onload = e => {
                 })
                 const res = json.fields
                 if (res.length == 0) {
+                    result.innerHTML = `<div class="alert alert-warning" role="alert">
+                                            未找到此备案号
+                                        </div>`
                 } else {
                     const ICP = res[0].ICP.replaceAll("a", "")
                     const email = res[0].email

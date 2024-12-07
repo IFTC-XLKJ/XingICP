@@ -4,6 +4,36 @@ function isValidDomain(domain) {
     const domainRegex = /^(?!:\/\/)(?=.{1,255}$)((?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z]{2,})$/;
     return domainRegex.test(domain);
 }
+function getURLParameters() {
+    const queryString = window.location.search.substring(1);
+    const params = {};
+
+    if (queryString) {
+        queryString.split('&').forEach(param => {
+            const [key, value] = param.split('=');
+            params[key] = decodeURIComponent(value);
+        });
+    }
+
+    return params;
+}
+const urlParams = getURLParameters();
+function triggerEnterKeyPress(element) {
+    const event = new KeyboardEvent('keydown', {
+        key: 'Enter',
+        code: 'Enter',
+        keyCode: 13,
+        charCode: 13,
+        which: 13,
+        shiftKey: false,
+        ctrlKey: false,
+        metaKey: false,
+        altKey: false,
+        bubbles: true,
+        cancelable: true
+    });
+    element.dispatchEvent(event);
+}
 
 onload = e => {
     console.log(e)
@@ -63,6 +93,14 @@ onload = e => {
         icp.value = icp.value.replaceAll(/[^0-9]/g, "")
         if (icp.value.trim()) {
             result.innerHTML = ""
+        }
+    }
+    if (urlParams.icp) {
+        icp.value = urlParams.icp
+        if (icp.value.trim().replaceAll(" ", "") && Number(icp.value.trim().replaceAll(" ", "")) != "number" && icp.value.trim().replaceAll(" ", "").length == 8) {
+            triggerEnterKeyPress(icp)
+        } else {
+            alert('请输入正确的ICP')
         }
     }
 }

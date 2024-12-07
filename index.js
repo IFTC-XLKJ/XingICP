@@ -23,6 +23,16 @@ onload = e => {
                     const email = res[0].email
                     const sites = res[0].site.split(",")
                     console.log(ICP, email, sites)
+                    result.innerHTML = `
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">星ICP备${ICP}号</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted">${email}</h6>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>`
                 }
             } else {
                 alert('请输入正确的ICP')

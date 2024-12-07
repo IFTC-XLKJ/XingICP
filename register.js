@@ -81,7 +81,10 @@ onload = e => {
             });
             console.log(data)
         } else {
-            if (json.fields[0].email == email.value) { } else {
+            if (json.fields[0].email == email.value) {
+                toast.error("该备案号已注册", 2000)
+                toast.loadend(id)
+            } else {
                 toast.warn("该备案号已注册", 2000)
                 toast.loadend(id)
             }

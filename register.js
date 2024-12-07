@@ -63,9 +63,15 @@ onload = e => {
             toast.error("请先验证邮箱", 2000)
             return
         }
-        const json = await getTableData({
-
+        const json = await xingicp.getTableData({
+            filter: `ICP="a${icp.value}"`,
+            page: 1,
+            size: 1
         });
+        if (json.data.length == 0) {
+        } else {
+            toast.warn("该备案号已注册", 2000)
+        }
     }
 }
 

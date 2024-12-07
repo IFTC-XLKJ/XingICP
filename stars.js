@@ -34,8 +34,11 @@ class Star {
 
     remove() {
         if (this.y > height) {
-            console.log(stars.find(s => s === this))
-            stars.splice(stars.indexOf(this), 1);
+            const index = stars.indexOf(this);
+            if (index !== -1) {
+                stars.splice(index, 1);
+                // console.log(`Removed star at index ${index}`);
+            }
         }
     }
 }
@@ -56,8 +59,8 @@ let numStars = Math.floor((Math.random() * 200).toFixed());
             const size = Math.random() * 3 + 1;
             stars.push(new Star(x, y, size));
         }
-        console.log(stars);
-        await new Promise(resolve => { setTimeout(resolve, Math.floor(Math.random() * 5000)) });
+        // console.log(stars);
+        await new Promise(resolve => { setTimeout(resolve, Math.floor(Math.random() * 3000)) });
     }
 })()
 

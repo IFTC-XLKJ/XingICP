@@ -73,11 +73,20 @@ onload = e => {
             page: 1,
             size: 1
         });
+        const radios = document.querySelectorAll('input[name="monster"]');
+        let monster = "";
+        radios.forEach(radio => {
+            radio.addEventListener('change', function () {
+                if (this.checked) {
+                    monster = this.value;
+                }
+            });
+        });
         if (json.fields.length == 0) {
             const data = await xingicp.setTableData({
                 type: "INSERT",
                 filter: "ICP,site,email,audit",
-                fields: `('a${icp.value}','${document.getElementById("name").value}','${email.value}',0)`
+                fields: `('a${icp.value}','${monster == "coco" ? "Ccoc->" : (monster == "kn" ? "KN->" : (monster == "kitten" ? "Kitten->" : (monster == "nemo" ? "Nemo->" : (monster == "voto" ? "Voto" : ""))))}${document.getElementById("name").value}','${email.value}',0)`
             });
             console.log(data)
             toast.success("提交成功，请等待审核", 2000)
@@ -92,9 +101,6 @@ onload = e => {
             }
         }
     }
-    // icp.value = "00000000"
-    // email.value = "iftcceo@139.com"
-    // document.getElementById("name").value = "IFTCCEO"
 }
 
 /**

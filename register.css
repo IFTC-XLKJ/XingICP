@@ -32,3 +32,10 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+button {
+    width: fit-content;
+    min-width: 120px;
+    height: fit-content;
+    min-height: 30px;
+}

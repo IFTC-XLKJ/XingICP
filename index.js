@@ -34,17 +34,17 @@ onload = e => {
                             .map(site => {
                                 const dd = site.split("->")
                                 if (dd[0] == "coco") {
-                                    return `<a href="https://coco.codemao.cn/editor/player/${dd[1]}?channel=h5">Coco${d[1]}</a>`
+                                    return `<a href="https://coco.codemao.cn/editor/player/${dd[1]}?channel=h5" target="_blank">Coco${d[1]}</a>`
                                 } else if (dd[0] == "kn") {
-                                    return `<a href="https://kn.codemao.cn/player?type=2&workId=${dd[1]}">KN${d[1]}</a>`
+                                    return `<a href="https://kn.codemao.cn/player?type=2&workId=${dd[1]}" target="_blank">KN${d[1]}</a>`
                                 } else if (dd[0] == "kitten") {
-                                    return `<a href="https://player.codemao.cn/new/${dd[1]}">Kitten${dd[1]}</a>`
+                                    return `<a href="https://player.codemao.cn/new/${dd[1]}" target="_blank">Kitten${dd[1]}</a>`
                                 } else if (dd[0] == "nemo") {
-                                    return `<a href="https://nemo.codemao.cn/w/${dd[1]}/${dd[1]}">Nemo${d[1]}</a>`
+                                    return `<a href="https://nemo.codemao.cn/w/${dd[1]}/${dd[1]}" target="_blank">Nemo${d[1]}</a>`
                                 } else if (dd[0] == "voto") {
-                                    return `<a href="https://voto.pages.dev/player/${dd[1]}">Voto${dd[1]}</a>`
+                                    return `<a href="https://voto.pages.dev/player/${dd[1]}" target="_blank">Voto${dd[1]}</a>`
                                 }
-                                return `<a href="https://${site}">${site}</a>`
+                                return `<a href="https://${site}" target="_blank">${site}</a>`
                             }).join("<br/>")}</p>
                         </div>
                     </div>`

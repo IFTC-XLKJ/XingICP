@@ -70,7 +70,9 @@ onload = e => {
         });
         if (json.data.length == 0) {
         } else {
-            toast.warn("该备案号已注册", 2000)
+            if (json.fields[0].email == email.value) { } else {
+                toast.warn("该备案号已注册", 2000)
+            }
         }
     }
 }

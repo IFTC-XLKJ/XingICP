@@ -1,5 +1,6 @@
 onload = e => {
     const toast = new Toast();
+    const Submit = document.querySelector("[type=submit]");
     captchaBtn.onclick = () => {
         if (/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g.test(email.value)) {
             let t = Math.round(new Date().getTime() / 1000);
@@ -27,7 +28,25 @@ onload = e => {
             toast.error('邮箱格式不正确', 2000)
         }
     }
+    Submit.onclick = e => {
+        e.preventDefault();
+        let t = Math.round(new Date().getTime() / 1000);
+        let json = {
+            "identity": Email,
+            "code": verifyCode.value,
+        }
+        ajax(json, "customize", data => {
+            if (data.code == 200) {
+                sendCode.disabled = true
+                verifyCode.disabled = true
+                isVerify = true
+            } else {
+                toast.error("验证失败", 2000)
+            }
+        })
+    }
 }
+
 /**
  * 发送验证码
  * @param {object} json 

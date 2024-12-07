@@ -39,4 +39,5 @@ button {
     height: fit-content;
     min-height: 30px;
     border-radius: 5px;
+    border: none;
 }

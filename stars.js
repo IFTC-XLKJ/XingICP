@@ -53,14 +53,12 @@ let numStars = Math.floor((Math.random() * 200).toFixed());
         stars.push(new Star(x, y, size));
     }
     for (; ;) {
-        for (let i = 0; i < Math.floor(Math.random() * 200); i++) {
-            const x = Math.random() * width;
-            const y = 0;
-            const size = Math.random() * 3 + 1;
-            stars.push(new Star(x, y, size));
-        }
+        const x = Math.random() * width;
+        const y = 0;
+        const size = Math.random() * 3 + 1;
+        stars.push(new Star(x, y, size));
         // console.log(stars);
-        await new Promise(resolve => { setTimeout(resolve, Math.floor(Math.random() * 3000)) });
+        await new Promise(resolve => { setTimeout(resolve, 50) });
     }
 })()
 

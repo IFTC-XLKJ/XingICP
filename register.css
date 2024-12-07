@@ -41,3 +41,10 @@ button {
     border-radius: 5px;
     border: none;
 }
+
+input[type="radio"] {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    transform: translateY(3px);
+}

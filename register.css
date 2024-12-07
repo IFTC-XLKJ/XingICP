@@ -43,12 +43,57 @@ button {
 }
 
 input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="radio"] {
     width: 15px;
     height: 15px;
     margin: 0;
     transform: translateY(3px);
+    color: white;
+}
+
+/* 自定义选中状态的样式 */
+input[type="radio"]:checked {
+    background-color: transparent;
+    border-color: white;
+    /* 你可以根据需要更改颜色 */
+}
+
+/* 添加一个小圆点表示选中状态 */
+input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    /* 你可以根据需要更改颜色 */
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 容器样式以便更好地定位伪元素 */
+.custom-radio {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
 }
 
 #monster {
     margin-bottom: 5px;
+}
+
+legend {
+    padding: 3px 6px;
 }

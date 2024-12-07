@@ -12,7 +12,7 @@ onload = e => {
         if (e.key == 'Enter') {
             if (icp.value.trim().replaceAll(" ", "") && Number(icp.value.trim().replaceAll(" ", "")) != "number" && icp.value.trim().replaceAll(" ", "").length == 8) {
                 const json = await xingicp.getTableData({
-                    filter: `ICP=${icp.value}`,
+                    filter: `ICP="a${icp.value}"`,
                     limit: 1,
                     page: 1,
                 })
@@ -29,7 +29,7 @@ onload = e => {
                             <h5 class="card-title">星ICP备${ICP}号</h5>
                         </div>
                         <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-muted">${email}</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">备案者：${email}</h6>
                             <p class="card-text"></p>
                         </div>
                     </div>`

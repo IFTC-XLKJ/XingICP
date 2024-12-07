@@ -31,16 +31,16 @@ onload = e => {
             toast.error('邮箱格式不正确', 2000)
         }
     }
-    captcha.onchange = e => {
+    captcha.oninput = e => {
         let t = Math.round(new Date().getTime() / 1000);
         let json = {
             "identity": Email,
-            "code": verifyCode.value,
+            "code": captcha.value,
         }
         ajax(json, "customize", data => {
             if (data.code == 200) {
-                sendCode.disabled = true
-                verifyCode.disabled = true
+                captchaBtn.disabled = true
+                captcha.disabled = true
                 isVerify = true
             } else {
                 toast.error("验证失败", 2000)

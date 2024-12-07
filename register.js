@@ -39,13 +39,17 @@ onload = e => {
             "identity": Email,
             "code": captcha.value,
         }
+        const id = toast.loading("正在验证...")
         ajax(json, "customize", data => {
             if (data.code == 200) {
                 captchaBtn.disabled = true
                 captcha.disabled = true
                 isVerify = true
+                toast.success("验证成功", 2000)
+                toast.loadend(id)
             } else {
                 toast.error("验证失败", 2000)
+                toast.loadend(id)
             }
         })
     }
@@ -63,25 +67,29 @@ onload = e => {
             toast.error("请先验证邮箱", 2000)
             return
         }
+        const id = toast.loading("正在提交...")
         const json = await xingicp.getTableData({
             filter: `ICP="a${icp.value}"`,
             page: 1,
             size: 1
         });
-        console.log(json)
         if (json.fields.length == 0) {
             const data = await xingicp.setTableData({
                 type: "INSERT",
                 filter: "ICP,site,email,audit",
-                fields: `('a${icp.value}','${site.value}','${email.value}',0)`
+                fields: `('a${icp.value}','${document.getElementById("name").value}','${email.value}',0)`
             });
             console.log(data)
         } else {
             if (json.fields[0].email == email.value) { } else {
                 toast.warn("该备案号已注册", 2000)
+                toast.loadend(id)
             }
         }
     }
+    icp.value = "00000000"
+    email.value = "iftcceo@139.com"
+    document.getElementById("name").value = "IFTCCEO"
 }
 
 /**

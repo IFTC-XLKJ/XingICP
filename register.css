@@ -62,28 +62,23 @@ input[type="radio"] {
     color: white;
 }
 
-/* 自定义选中状态的样式 */
 input[type="radio"]:checked {
     background-color: transparent;
     border-color: white;
-    /* 你可以根据需要更改颜色 */
 }
 
-/* 添加一个小圆点表示选中状态 */
 input[type="radio"]:checked::after {
     content: '';
     position: absolute;
     width: 8px;
     height: 8px;
     background-color: white;
-    /* 你可以根据需要更改颜色 */
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-/* 容器样式以便更好地定位伪元素 */
 .custom-radio {
     display: inline-block;
     position: relative;

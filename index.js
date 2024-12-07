@@ -41,5 +41,8 @@ onload = e => {
     }
     icp.oninput = e => {
         icp.value = icp.value.replaceAll(/[^0-9]/g, "")
+        if (icp.value.trim()) {
+            result.innerHTML = ""
+        }
     }
 }

@@ -47,12 +47,21 @@ onload = e => {
             }
         })
     }
-    Submit.onclick = e => {
+    Submit.onclick = async e => {
         e.preventDefault();
+        if (!icp.value.trim()) {
+            toast.error("请输入ICP备案号", 2000)
+            return
+        }
+        if (icp.value.length != 8) {
+            toast.error("ICP备案号长度不正确", 2000)
+            return
+        }
         if (!isVerify) {
             toast.error("请先验证邮箱", 2000)
             return
         }
+        const json = await getTableData();
     }
 }
 

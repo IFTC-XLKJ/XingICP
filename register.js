@@ -80,9 +80,10 @@ onload = e => {
                 fields: `('a${icp.value}','${document.getElementById("name").value}','${email.value}',0)`
             });
             console.log(data)
+            toast.success("提交成功，请等待审核", 2000)
         } else {
             if (json.fields[0].email == email.value) {
-                toast.error("该备案号已注册", 2000)
+                toast.error("你注册过备案号", 2000)
                 toast.loadend(id)
             } else {
                 toast.warn("该备案号已注册", 2000)
@@ -90,9 +91,9 @@ onload = e => {
             }
         }
     }
-    icp.value = "00000000"
-    email.value = "iftcceo@139.com"
-    document.getElementById("name").value = "IFTCCEO"
+    // icp.value = "00000000"
+    // email.value = "iftcceo@139.com"
+    // document.getElementById("name").value = "IFTCCEO"
 }
 
 /**

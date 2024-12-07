@@ -25,11 +25,13 @@ onload = e => {
                     const ICP = res[0].ICP.replaceAll("a", "")
                     const email = res[0].email
                     const sites = res[0].site.split(",")
-                    console.log(ICP, email, sites)
+                    const audit = res[0].audit
+                    console.log(ICP, email, sites, audit)
                     result.innerHTML = `
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">星ICP备${ICP}号</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">${audit == 0 ? "备案审核中" : (audit == 1 ? "备案通过" : (audit == 2 ? "备案未通过" : "未知备案状态"))}</h6>
                         </div>
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2 text-muted">备案者：<a href="mailto:${email}">${email}</a></h6>

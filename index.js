@@ -96,8 +96,8 @@ onload = e => {
         }
     }
     if (urlParams.icp) {
-        icp.value = urlParams.icp
-        if (icp.value.trim().replaceAll(" ", "") && Number(icp.value.trim().replaceAll(" ", "")) != "number" && icp.value.trim().replaceAll(" ", "").length == 8) {
+        if (urlParams.icp.trim().replaceAll(" ", "") && Number(urlParams.icp.trim().replaceAll(" ", "")) != "number" && urlParams.icp.trim().replaceAll(" ", "").length == 8) {
+            icp.value = urlParams.icp
             triggerEnterKeyPress(icp)
         } else {
             alert('请输入正确的ICP')

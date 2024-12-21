@@ -1,3 +1,13 @@
 <script src="/crypto-js.min.js"></script>
 <script src="/eruda.js"></script>
 <script>eruda.init();</script>
+<script>
+    async function login() {
+        try {
+            const result = await fetch("https://api.iftc.workers.dev/user/login")
+            console.log(result)
+        } catch (e) {
+            console.error(e)
+        }
+    }
+</script>

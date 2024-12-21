@@ -1,12 +1,12 @@
 <script src="/eruda.js"></script>
 <script>eruda.init();</script>
 <script>
-    (async function () {
+    async function help() {
         try {
             const result = await fetch("https://api.iftc.workers.dev/help")
             console.log(result)
         } catch (e) {
             console.error(e)
         }
-    })()
+    }
 </script>

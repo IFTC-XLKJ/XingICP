@@ -4,10 +4,12 @@
 <script>
     async function login() {
         try {
-            const result = await fetch("https://api.iftc.workers.dev/user/login")
-            console.log(result)
+            const result = await fetch("https://api.iftc.workers.dev/user/login?token=114514114514114514&user=0&password=21ec360b05962410edbcc561edc8648e");
+            const json = await result.json();
+            console.log(json);
         } catch (e) {
-            console.error(e)
+            console.error(e);
         }
     }
+    login();
 </script>

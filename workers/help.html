@@ -3,10 +3,11 @@
 <script>
     async function help() {
         try {
-            const result = await fetch("https://api.iftc.workers.dev/help")
-            console.log(result)
+            const result = await fetch("https://api.iftc.workers.dev/help");
+            console.log(result);
         } catch (e) {
-            console.error(e)
+            console.error(e);
         }
     }
+    help();
 </script>
